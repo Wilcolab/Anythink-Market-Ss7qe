@@ -7,10 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 100.times do 
 	rand_part = Random.hex[0..10]
-	User.create! email: "#{rand_part}@test.com", password: rand_part, username: "user#{rand_part}"
+	user = User.create! email: "#{rand_part}@test.com", password: rand_part, username: "user#{rand_part}"
+	item = Item.create! title: 'test item 1', description: 'amazing', user: user
+	comment = Comment.create! user: user, item: item, body: 'a comment is here'
 end
-
-user = User.last
-item1 = Item.create! title: 'test item 1', description: 'amazing', user: user
-item2 = Item.create! title: 'test item 2', description: 'amazing', user: user
-item3 = Item.create! title: 'test item 3', description: 'amazing', user: user
