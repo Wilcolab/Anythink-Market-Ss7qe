@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 100.times do 
-	User.create! email: "#{Random.hex[0..10]}@test.com", password: Random.hex, username: 'user12'
+	rand_part = Random.hex[0..10]
+	User.create! email: "#{rand_part}@test.com", password: rand_part, username: "user#{rand_part}"
 end
 
 user = User.last
